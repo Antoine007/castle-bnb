@@ -69,12 +69,9 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
-
-    geocoder (1.2.9)
-
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
-
+    geocoder (1.2.9)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -180,22 +177,16 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
-<<<<<<< HEAD
+  font-awesome-sass
   geocoder
   gmaps4rails
-=======
-  font-awesome-sass
->>>>>>> origin
   jbuilder (~> 2.0)
   jquery-rails
   paperclip
   pg
   rails (= 4.2.1)
-<<<<<<< HEAD
   rails-assets-underscore
-=======
   rails_12factor
->>>>>>> origin
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form
