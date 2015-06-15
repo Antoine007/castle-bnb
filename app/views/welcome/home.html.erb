@@ -1,0 +1,16 @@
+
+
+<div class="text-center main-title">
+  <h1 > Become a Lord </h1>
+</div>
+
+<div class="text-center search-box">
+  <%= form_for(@city) do |f| %>
+    <%= f.label :invade %>
+    <br>
+    <%= f.text_field :city, class:'text-field' %>
+    <br>
+    <br>
+    <%= f.submit 'Claim your castle', :class => 'btn btn-primary'%>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+@import "base";
+@import "utilities";
+@import "footer";
+@import "navbar";
+@import "sidebar";
+
+body {
+  background: url("castle");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-position: center center;
+}
+
+.main-title {
+  background: rgba(0,0,0,0.6);
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 200px;
+  margin-bottom: 70px;
+}
+
+.text-field {
+  color:black;
+}
