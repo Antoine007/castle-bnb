@@ -2,15 +2,23 @@ class CastlesController < ApplicationController
   before_action :set_castle, only: [:show, :edit, :update, :destroy]
 
   # GET /castles
-  # GET /castles.json
   def index
     @castles = Castle.all
+
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@castles) do |castle, marker|
+      marker.lat castle.latitude
+      marker.lng castle.longitude
+    end
   end
 
   # GET /castles/1
-  # GET /castles/1.json
   def show
+    @castle = Castle.find(params[:id])
+    @castle_coordinates = { latitude: @castle.latitude, longitude: @castle.longitude }
+    @alert_message = "You are viewing #{@castle.name}"
   end
+
 
   # GET /castles/new
   def new
