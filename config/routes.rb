@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  # devise_for :users
   resources :castles
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  post 'index', to: 'castles/index'
+  get 'index', to: 'castles/index'
 
   root 'welcome#home'
   # Example of regular route:

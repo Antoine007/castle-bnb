@@ -5,12 +5,14 @@
 </div>
 
 <div class="text-center search-box">
-  <%= form_for(@city) do |f| %>
-    <%= f.label :invade %>
-    <br>
-    <%= f.text_field :city, class:'text-field' %>
-    <br>
-    <br>
-    <%= f.submit 'Claim your castle', :class => 'btn btn-primary'%>
-  <% end %>
+
+    <%= form_tag castles_path, method: :get do %>
+      <%= label :location, "Invade" %>
+      <br>
+      <%= text_field_tag :location, params[:location], class:'text-field'%>
+      <br>
+      <br>
+      <%= submit_tag "Claim your castle", :class => 'btn btn-primary' %>
+    <% end %>
+
 </div>
