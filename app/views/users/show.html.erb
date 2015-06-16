@@ -1,0 +1,17 @@
+
+<div class="text-center title">
+  <h1> My hommage <br> <b>Lord <%= @user.first_name %> </b></h1>
+</div>
+
+<div class="text-center wrapper">
+  <%#= @user.gender == "Male" ? @image = "king.jpg" : @image = "queen.jpg" %>
+  <%= image_tag 'king.jpg', class: "profile-img" %><br>
+  <p>First Name:</p><%= @user.first_name %>
+  <p>Last Name:</p><%= @user.last_name %>
+  <p>Email:</p><%= @user.email %>
+  <p>Phone Number:</p><%= @user.phone_number %>
+  <p>Gender: </p><%= @user.gender == "Male" ? "Prince" : "Princess" %>
+  <p>Address:</p><%= @user.address %>
+  </br>
+  <button class="btn btn-primary">Rent your castle</button>
+</div>
