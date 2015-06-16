@@ -5,20 +5,19 @@ class CastlesController < ApplicationController
   def index
     @castles = Castle.all
 
-    # identify the 3 closest castles
-
-
+    # identify the closest castles
     if params[:location].present?
       @castles = Castle.near(params[:location], 10000)
     else
       @castles = Castle.all
     end
 
-
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@castles) do |castle, marker|
       marker.lat castle.latitude
       marker.lng castle.longitude
+
+      marker.infowindow render_to_string(partial: "/castles/map_box", locals: {castle: castle})
     end
   end
 
