@@ -22,7 +22,7 @@
     <%= javascript_tag do %>
       $(document).ready(function() {
         var coord = <%= raw @castle_coordinates %>;
-        alert('Flat coordinates are ' + coord.latitude + ', ' + coord.longitude);
+        alert('Castle coordinates are ' + coord.latitude + ', ' + coord.longitude);
         <!-- above put in dynamic message -->
       });
     <% end %>
