@@ -1,0 +1,45 @@
+body {
+  background: url("castle");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-position: center center;
+}
+
+.main-title {
+  margin-top: 130px;
+}
+
+.title {
+  background: rgba(0,0,0,0.6);
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.text-field {
+  color:black;
+}
+
+.profile-img{
+  border-radius:5px;
+  width:70px;
+  height: 70px;
+}
+
+.wrapper > .profile-img {
+  margin-top: 15px;
+}
+.wrapper > .btn {
+  margin-bottom: 15px;
+}
+
+.wrapper > p {
+  font-size:11px;
+  color: grey;
+  margin-bottom: 0;
+}
+
+
+
