@@ -1,5 +1,5 @@
 
-<div class="wrapper text-center">
+<div class="wrapper text-center padded2">
   <h2>Create a new castle</h2>
    <%= simple_form_for @castle do |f| %>
    <div class="text-field">
@@ -10,7 +10,7 @@
     <br>
      <%= f.label :address %>
      <br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, id:'user_input_autocomplete_address' %>
     <br>
     <br>
      <%= f.label :description %>
@@ -20,13 +20,13 @@
     <br>
     <%= f.label :picture %>
     <br>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture%>
     <br>
     <br>
      <%= f.input :beds, collection: 1..50 %>
     <br>
     <br>
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
   </div>
   <% end %>
 </div>

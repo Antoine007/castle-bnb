@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="col-md-12" >
-  <div class=container >
-    <%= image_tag @castle.picture.url(:medium) %>
-    <%= @castle.name %>
-    <%= @castle.beds %>
-    <%= @castle.description %>
-    <%= @castle.address %>
+<div class="col-md-12 text-center" >
+  <div class="title" style="padding-top: 20px" >
+    <%= image_tag @castle.picture.url(:medium) %><br>
+    <h2><%= @castle.name %></h2><br>
+    <%= @castle.beds %><br>
+    <%= @castle.description %><br>
+    <%= @castle.address %><br><br>
     <%= form_tag castle_path(@castle), method: :get do %>
       <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
       <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
@@ -18,38 +18,38 @@
 
 
   <!-- Date Picker -->
-    <script type="text/javascript">
-        $(window).load(function()
-        {
-          // var myDate = new Date();
-          // var prettyDate =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +myDate.getFullYear();
-            $('.calendar' ).glDatePicker(
-            {
-              showAlways: true,
-              cssName: 'flatwhite',
-              selectedDate: new Date(),
-              specialDates: [
->>>>>>> master
+     <script type="text/javascript">
+     $(window).load(function()
+     {
+       // var myDate = new Date();
+       // var prettyDate =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +myDate.getFullYear();
+       $('.calendar' ).glDatePicker(
+       {
+         showAlways: true,
+         cssName: 'flatwhite',
+         allowMonthSelect: true,
+         allowYearSelect: true,
+         selectedDate: new Date(),
 
-              {
-                  date: new Date(0, 0, 1),
-                  data: { message: 'Happy New Year!' },
-                  repeatYear: true
-              },
-              ],
-              onClick: function(target, cell, date, data) {
-                target.val(date.getFullYear() + '-' +
-                              date.getMonth() + '-' +
-                              date.getDate());
+         selectableDateRange: [
+             { from: new Date(2015, 5, 1),
+                 to: new Date(2015, 5, 10) },
+             { from: new Date(2015, 5, 19),
+                 to: new Date(2015, 5, 22) },
+         ],
+         onClick: function(target, cell, date, data) {
+           target.val(date.getFullYear() + '-' +
+                         date.getMonth() + '-' +
+                         date.getDate());
 
-                  if(data != null) {
-                      alert(data.message + '\n' + date);
-                  }
-              }
-          });
-        });
-    </script>
-    <p><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+           if(data != null) {
+             alert(data.message + '\n' + date);
+           }
+         }
+       });
+     });
+   </script>
+    <p></br><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
     <%= link_to 'Back', castles_path %>
   </div>
