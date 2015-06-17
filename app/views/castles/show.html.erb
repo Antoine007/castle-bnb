@@ -1,15 +1,58 @@
 <p id="notice"><%= notice %></p>
 
 
-     <%= image_tag @castle.picture.url(:medium) %>
- 
-<h1> This is <%= @castle.name %> </h1>
-<p> Total beds: <%= @castle.beds %> </p>
-<p> Description: <%= @castle.description %>
-<p> Address: <%= @castle.address %>
+<div class="col-md-12" >
+  <div class=container >
+    <%= image_tag @castle.picture.url(:medium) %>
+    <%= @castle.name %>
+    <%= @castle.beds %>
+    <%= @castle.description %>
+    <%= @castle.address %>
+    <%= form_tag castle_path(@castle), method: :get do %>
+      <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
+      <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
+      <%= submit_tag "Make these dates unavailable", :class => 'btn btn-primary' %>
+    <% end %>
+
+  <!-- todayDate: new Date(), -->
 
 
-<p><%= link_to 'Edit', edit_castle_path(@castle) %></p>
-<p><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <!-- Date Picker -->
+    <script type="text/javascript">
+        $(window).load(function()
+        {
+          // var myDate = new Date();
+          // var prettyDate =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +myDate.getFullYear();
+            $('.calendar' ).glDatePicker(
+            {
+              showAlways: true,
+              cssName: 'flatwhite',
+              selectedDate: new Date(),
+              specialDates: [
+>>>>>>> master
 
-<%= link_to 'Back', castles_path %>
+              {
+                  date: new Date(0, 0, 1),
+                  data: { message: 'Happy New Year!' },
+                  repeatYear: true
+              },
+              ],
+              onClick: function(target, cell, date, data) {
+                target.val(date.getFullYear() + '-' +
+                              date.getMonth() + '-' +
+                              date.getDate());
+
+                  if(data != null) {
+                      alert(data.message + '\n' + date);
+                  }
+              }
+          });
+        });
+    </script>
+    <p><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+    <%= link_to 'Back', castles_path %>
+  </div>
+</div>
+
+

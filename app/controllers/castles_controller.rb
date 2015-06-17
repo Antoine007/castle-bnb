@@ -13,7 +13,7 @@ class CastlesController < ApplicationController
     end
 
     # Let's DYNAMICALLY build the markers for the view.
-    @markers = Gmaps4rails.build_markers(@castles) do |castle, marker|
+    @markers = Gmaps4rails.build_markers(@castles[0..9]) do |castle, marker|
       marker.lat castle.latitude
       marker.lng castle.longitude
 
