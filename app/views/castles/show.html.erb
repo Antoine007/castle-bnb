@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class=container >
-  <div class="col-md-12" >
-    <%= image_tag("grace.jpg", class: "img-responsive") %>
-  </div>
-</div>
 
+     <%= image_tag @castle.picture.url(:medium) %>
+ 
+<h1> This is <%= @castle.name %> </h1>
+<p> Total beds: <%= @castle.beds %> </p>
+<p> Description: <%= @castle.description %>
+<p> Address: <%= @castle.address %>
 
 
 <p><%= link_to 'Edit', edit_castle_path(@castle) %></p>

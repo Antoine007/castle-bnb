@@ -9,10 +9,12 @@
     <%= form_tag castles_path, method: :get do %>
       <%= label :location, "Invade" %>
       <br>
-      <%= text_field_tag :location, params[:location], class:'text-field'%>
+      <%= text_field_tag :location, params[:location], class:'text-field', id:'user_input_autocomplete_address'%>
       <br>
       <br>
       <%= submit_tag "Claim your castle", :class => 'btn btn-primary' %>
     <% end %>
 
 </div>
+
+ 

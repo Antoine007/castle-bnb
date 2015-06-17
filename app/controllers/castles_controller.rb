@@ -53,6 +53,7 @@ class CastlesController < ApplicationController
         format.json { render json: @castle.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /castles/1
@@ -87,6 +88,8 @@ class CastlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def castle_params
-      params[:castle]
+      params.require(:castle).permit(:name,:description,:address,:beds,:picture)
     end
 end
+
+
