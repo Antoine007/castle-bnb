@@ -26,9 +26,11 @@
   $(".castle-box").click(function(){
     if($(this).parent().hasClass("col-md-4")){
       $(this).parent().removeClass( "col-md-4" ).addClass( "col-md-12" ).css( "z-index", "3" );
+      // $(this).css("width", "50%");
     }
     else{
       $(this).parent().removeClass( "col-md-12" ).addClass( "col-md-4" ).css( "z-index", "1" );
+      // $(this).css("width", "100%");
     }
   });
 </script>
