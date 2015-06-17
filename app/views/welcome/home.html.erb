@@ -1,18 +1,20 @@
-<div class="text-center main-title">
-  <h1 > Become a Lord </h1>
-</div>
+<div class="title">
+  <div class="text-center main-title">
+    <h1 > Become a Lord </h1>
+  </div>
 
-<div class="text-center search-box">
+  <div class="text-center search-box">
 
-    <%= form_tag castles_path, method: :get do %>
-      <%= label :location, "Invade" %>
-      <br>
-      <%= text_field_tag :location, params[:location], class:'text-field', id:'user_input_autocomplete_address'%>
+      <%= form_tag castles_path, method: :get do %>
+        <%= label :location, "Invade" %>
+        <br>
+        <%= text_field_tag :location, params[:location], class:'text-field', id:'user_input_autocomplete_address'%>
 
-      <br>
-      <%= submit_tag "Claim your castle", :class => 'btn btn-primary' %>
-    <% end %>
+        <br><br>
+        <%= submit_tag "Claim your castle", :class => 'btn btn-primary' %>
+      <% end %>
 
+  </div>
 </div>
 
 
