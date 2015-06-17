@@ -1,4 +1,8 @@
-.picture-frame {
+.container{
+  margin-left:21%;
+  margin-right:1%;
+}
+.castle-box {
   margin-left: 0;
   margin-right: 5px;
   margin-top: 0;
@@ -9,3 +13,23 @@
 .map_box{
   color: black;
 }
+.map{
+  top: 0px;
+  left: 0px;
+  position:fixed;
+  width: 20%;
+  height:100%;
+  z-index:2;
+  margin-top: 106px;
+}
+.page-title{
+  position:absolute;
+  background-color: rgba(0,0,0,0.6);
+  width:100%;
+  top:53px;
+  height:53px;
+}
+// .picture-frame{
+//   width: 50%;
+// }
+
