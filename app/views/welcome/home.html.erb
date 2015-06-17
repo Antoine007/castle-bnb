@@ -7,13 +7,12 @@
     <%= form_tag castles_path, method: :get do %>
       <%= label :location, "Invade" %>
       <br>
-      <%= text_field_tag :location, params[:location], class:'text-field', placeholder: 'enter location' %>
-      <br>
-      <%= text_field_tag :start_date, params[:start_date], class:'text-field', placeholder: 'from (date)' %>
-      <br>
-      <%= text_field_tag :end_date, params[:end_date], class:'text-field', placeholder: 'to (date)'%>
+      <%= text_field_tag :location, params[:location], class:'text-field', id:'user_input_autocomplete_address'%>
+
       <br>
       <%= submit_tag "Claim your castle", :class => 'btn btn-primary' %>
     <% end %>
 
 </div>
+
+

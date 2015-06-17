@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+
 <div class="col-md-12" >
   <div class=container >
-    <%= image_tag("grace.jpg", class: "img-responsive") %>
+    <%= image_tag @castle.picture.url(:medium) %>
     <%= @castle.name %>
     <%= @castle.beds %>
     <%= @castle.description %>
-
+    <%= @castle.address %>
     <%= form_tag castle_path(@castle), method: :get do %>
       <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
       <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
@@ -28,6 +29,7 @@
               cssName: 'flatwhite',
               selectedDate: new Date(),
               specialDates: [
+>>>>>>> master
 
               {
                   date: new Date(0, 0, 1),
