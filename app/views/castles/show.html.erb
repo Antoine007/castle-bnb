@@ -1,14 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<div class=container >
-  <div class="col-md-12" >
+<div class="col-md-12" >
+  <div class=container >
     <%= image_tag("grace.jpg", class: "img-responsive") %>
+    <%= @castle.name %>
+    <%= @castle.beds %>
+    <%= @castle.description %>
+
+
+  <p><%= link_to 'Edit', edit_castle_path(@castle) %></p>
+  <form action="" method="get">
+    <input type="text" :start_date, params[:start_date], class="calendar" />
+    <input type="text" class="calendar" />
+    <input type="submit" value="Make these dates unavailable" />
+  </form>
+
+
+
+  <!-- Date Picker -->
+    <script type="text/javascript">
+        $(window).load(function()
+        {
+            $('.calendar' ).glDatePicker(
+          {
+              showAlways: true,
+              cssName: 'flatwhite',
+              selectedDate: new Date(2013, 0, 5),
+              specialDates: [
+                  {
+                      date: new Date(2013, 0, 8),
+                      data: { message: 'Meeting every day 8 of the month' },
+                      repeatMonth: true
+                  },
+                  {
+                      date: new Date(0, 0, 1),
+                      data: { message: 'Happy New Year!' },
+                      repeatYear: true
+                  },
+              ],
+              onClick: function(target, cell, date, data) {
+                  target.val(date.getFullYear() + ' - ' +
+                              date.getMonth() + ' - ' +
+                              date.getDate());
+
+                  if(data != null) {
+                      alert(data.message + '\n' + date);
+                  }
+              }
+          });
+        });
+    </script>
+    <p><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+    <%= link_to 'Back', castles_path %>
   </div>
 </div>
 
 
-
-<p><%= link_to 'Edit', edit_castle_path(@castle) %></p>
-<p><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-
-<%= link_to 'Back', castles_path %>
