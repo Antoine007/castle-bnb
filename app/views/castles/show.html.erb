@@ -23,16 +23,17 @@
           // var myDate = new Date();
           // var prettyDate =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +myDate.getFullYear();
             $('.calendar' ).glDatePicker(
-          {
+            {
               showAlways: true,
               cssName: 'flatwhite',
-              selectedDate: new Date(2015, 6, 15),
+              selectedDate: new Date(),
               specialDates: [
-                  {
-                      date: new Date(0, 0, 1),
-                      data: { message: 'Happy New Year!' },
-                      repeatYear: true
-                  },
+
+              {
+                  date: new Date(0, 0, 1),
+                  data: { message: 'Happy New Year!' },
+                  repeatYear: true
+              },
               ],
               onClick: function(target, cell, date, data) {
                 target.val(date.getFullYear() + '-' +
