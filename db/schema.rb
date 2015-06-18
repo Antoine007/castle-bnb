@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150617095344) do
     t.string   "address"
     t.text     "description"
     t.integer  "beds"
-    t.string   "lord_id"
+    t.string   "user_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
