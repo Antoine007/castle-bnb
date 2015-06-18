@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => 'accounts'
+
+  resources :users do
+    resources :castles, :except => :index
+  end
+
   resources :castles
+
+  # get 'castles', to: 'castles#index', as: 'castles'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get 'index',     to: 'castles/index'
-  get 'users/:id', to: 'users#show'
-  # get 'users/new', to: "users#new"
-  post 'users',    to: 'users#create'
+  get  'index',     to: 'castles/index'
+  get  'users/:id', to: 'users#show',    as: 'show_user'
+  post 'users',     to: 'users#create'
 
   root 'welcome#home'
   # Example of regular route:
