@@ -9,6 +9,7 @@
 castle_list = [
   ["Château de la Hulpe",50.737932,4.472067],
   ["Château de Chenonceau",47.32487,1.0703],
+  ["Downton Abbey", 51.3349875,-1.240754,9],
   ["Alhambra",37.1760458,-3.5890506],
   ["Elvis' Graceland",35.0471127,-90.0259679],
   ["Beijing Summer Palace",39.9388838,116.3974589],
