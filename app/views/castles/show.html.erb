@@ -11,10 +11,8 @@
     <%= form_tag castle_path(@castle), method: :get do %>
       <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
       <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
-      <%= submit_tag "Make these dates unavailable", :class => 'btn btn-primary' %>
+      <%= submit_tag "Book these dates!", :class => 'btn btn-primary' %>
     <% end %>
-
-  <!-- todayDate: new Date(), -->
 
 
   <!-- Date Picker -->
