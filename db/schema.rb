@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617095344) do
+ActiveRecord::Schema.define(version: 20150618124521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "castle_id"
+    t.integer  "user_id"
+    t.boolean  "confirmed"
+    t.boolean  "paid"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bookings", ["castle_id"], name: "index_bookings_on_castle_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "castles", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -31,7 +46,19 @@ ActiveRecord::Schema.define(version: 20150617095344) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "price"
   end
+
+  create_table "nights", force: :cascade do |t|
+    t.integer  "castle_id"
+    t.integer  "booking_id"
+    t.date     "not_available"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "nights", ["booking_id"], name: "index_nights_on_booking_id", using: :btree
+  add_index "nights", ["castle_id"], name: "index_nights_on_castle_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,4 +84,8 @@ ActiveRecord::Schema.define(version: 20150617095344) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bookings", "castles"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "nights", "bookings"
+  add_foreign_key "nights", "castles"
 end
