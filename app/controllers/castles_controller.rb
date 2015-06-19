@@ -7,12 +7,12 @@ class CastlesController < ApplicationController
 
     # identify the closest castles
     if params[:location].present?
-      @castles = Castle.near(params[:location], 10000)
+      @castles = Castle.near(params[:location], 20000)
     else
       @castles = Castle.all
     end
 
-    # Let's DYNAMICALLY build the markers for the view.
+    # DYNAMICALLY build the markers for the closest 10 castles.
     @markers = Gmaps4rails.build_markers(@castles[0..9]) do |castle, marker|
       marker.lat castle.latitude
       marker.lng castle.longitude
@@ -25,9 +25,32 @@ class CastlesController < ApplicationController
   def show
     @castle = Castle.find(params[:id])
     @castle_coordinates = { latitude: @castle.latitude, longitude: @castle.longitude }
-    @alert_message = "You are viewing #{@castle.name}"
-    # pictures models
-  end
+
+    @not_available_array = []
+
+    # Query Booking Availability
+    @castle.nights.each do |night|
+
+      @not_available_array << night.not_available.to_s
+      # push all not_available dates into array
+      # parse each date into string
+
+      # Not available booking dates
+      # if night.not_available > params[:start_date] && @castle.nights.not_available < params[:end_date]
+      #    flash[:notice] = "Your booking dates are not available"
+      #    # Route back to castle_path(castle) for example - @url = booking_url | castle_path(@castle_id)
+
+      # # Available booking dates
+      # else
+      #    flash[:notice] = "Your booking request has been sent to the lord of the castle"
+         # Route to Booking Path - Confirmation and Payment
+      # end
+      end
+    end
+
+  # pictures models
+  # end # remove this show if logic of testing availabily is commented out
+
 
 
   # GET /castles/new

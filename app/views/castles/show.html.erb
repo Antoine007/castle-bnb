@@ -1,59 +1,54 @@
+<title>jQuery UI Datepicker - Default functionality</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
 <p id="notice"><%= notice %></p>
 
+<!-- Set direction of path if booking is available or not available -->
 
 <div class="col-md-12 text-center" >
   <div class="title" style="padding-top: 20px" >
     <%= image_tag @castle.picture.url(:medium) %><br>
     <h2><%= @castle.name %></h2><br>
+    <%= @castle.id %><br>
     <%= @castle.beds %><br>
     <%= @castle.description %><br>
     <%= @castle.address %><br><br>
+
     <%= form_tag castle_path(@castle), method: :get do %>
-      <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
-      <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
-      <%= submit_tag "Book these dates!", :class => 'btn btn-primary' %>
+      <%= text_field_tag :start_date, params[:start_date], class:"datepicker" , placeholder: 'from (date)' %>
+      <%= text_field_tag :end_date, params[:end_date], class:"datepicker" , placeholder: 'until (date)' %>
+      <%= submit_tag "BOOK THESE DATES NOW", :class => 'btn btn-primary' %>
     <% end %>
-
-
-  <!-- Date Picker -->
-     <script type="text/javascript">
-     $(window).load(function()
-     {
-       // var myDate = new Date();
-       // var prettyDate =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +myDate.getFullYear();
-       $('.calendar' ).glDatePicker(
-       {
-         showAlways: true,
-         cssName: 'flatwhite',
-         allowMonthSelect: true,
-         allowYearSelect: true,
-         selectedDate: new Date(),
-         selectableDateRange: [
-             { from: new Date(2015, 5, 1),
-                 to: new Date(2015, 5, 10) },
-             { from: new Date(2015, 5, 19),
-                 to: new Date(2015, 5, 22) },
-         ],
-         selectableDates: [
-             { date: new Date(2015, 6, 24) },
-             { date: new Date(2015, 6, 30) },
-         ],
-         onClick: function(target, cell, date, data) {
-           target.val(date.getFullYear() + '-' +
-                         date.getMonth() + '-' +
-                         date.getDate());
-
-           if(data != null) {
-             alert(data.message + '\n' + date);
-           }
-         }
-       });
-     });
-   </script>
-    <p></br><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-
     <%= link_to 'Back', castles_path %>
+
+    <!-- Date Picker -->
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+    // Do javascript when page loads
+
+        // var not_available_array = ["2015-06-24","2015-06-25","2015-06-26"]
+
+        var not_available_array = <%= raw @not_available_array %>
+        // bad practice
+        // should process the variable above the script tag above.
+
+        console.log(not_available_array) // in javascript - shows data in chrome console
+
+        $('.datepicker').datepicker({
+          inline: true,
+          showOtherMonths: true,
+          dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+          beforeShowDay: function(date){
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [ not_available_array.indexOf(string) == -1 ]
+          }
+        });
+      })
+    </script>
+
   </div>
 </div>
-
-

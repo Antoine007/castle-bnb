@@ -6,19 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 castle_list = [
   ["Château de la Hulpe",50.737932,4.472067],
   ["Château de Chenonceau",47.32487,1.0703],
   ["Downton Abbey", 51.3349875,-1.240754,9],
   ["Alhambra",37.1760458,-3.5890506],
   ["Elvis' Graceland",35.0471127,-90.0259679],
-  ["Beijing Summer Palace",39.9388838,116.3974589],
-  ["Château de Chambord",47.616126,1.517218],
-  ["Château Royal d'Amboise",47.3962409,0.9995249],
-  ["Dukes of Brabant castle, Turnhout"  ,51.32445,4.946591],
-  ["Renesse castle, Malle"  , 51.300576 , 4.728115],
-  ["Veltwijck castle, Ekeren" , 51.276449 , 4.421916],
-  ["s-Gravenwezel castle, Schilde"  , 51.261084 , 4.568755],
   ["Ter Leyen castle, Assenede" , 51.256937 , 3.71842],
   ["Schoten castle, Schoten"  , 51.244806 , 4.488982],
   ["Borrekens castle, Vorselaar"  , 51.217487 , 4.779316],
@@ -142,3 +136,15 @@ castle_list = [
 castle_list.each do |castle_name, lat, lng|
   Castle.create(name: castle_name, latitude: lat, longitude: lng)
 end
+
+# Seed Night with dates not_available
+require 'date'
+
+3.times do |t|
+  Castle.all.each do |castle|
+    random_day  = Random.new.rand(1..30)
+    Night.create(castle_id: castle.id, not_available: Date.new(2015,06,random_day))
+  end
+end
+
+# Night.create(castle_id: 1, not_available: Date.new(2015,06,rand(1..30)))
