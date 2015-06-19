@@ -37,6 +37,7 @@ class CastlesController < ApplicationController
 
   # GET /castles/1/edit
   def edit
+    @castle = Castle.find(params[:id])
   end
 
   # POST /castles
@@ -89,7 +90,7 @@ class CastlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def castle_params
-      params.require(:castle).permit(:name,:description,:address,:beds,:picture, :user_id)
+      params.require(:castle).permit(:name,:description,:address,:beds, :price,:picture, :user_id)
     end
 end
 

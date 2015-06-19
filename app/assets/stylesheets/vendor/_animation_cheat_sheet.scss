@@ -209,8 +209,8 @@ slideRight
   animation-name: slideRight;
   -webkit-animation-name: slideRight;
 
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
+  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
 
   animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
@@ -1066,15 +1066,14 @@ stretchRight
   animation-name: stretchRight;
   -webkit-animation-name: stretchRight;
 
-  animation-duration: 1.5s;
-  -webkit-animation-duration: 1.5s;
-
-  animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease-out;
+  animation-duration: 10s;
+  -webkit-animation-duration: 10s;
 
   transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
   -webkit-transform-origin: 0% 0%;
+
+  visibility: visible !important;
 }
 
 @keyframes stretchRight {
@@ -1088,13 +1087,13 @@ stretchRight
     transform: scaleX(0.98);
   }
   80% {
-    transform: scaleX(1.01);
+    transform: scaleX(1.0);
   }
   100% {
-    transform: scaleX(0.98);
+    transform: scaleX(1);
   }
   80% {
-    transform: scaleX(1.01);
+    transform: scaleX(1.0);
   }
   100% {
     transform: scaleX(1);
@@ -1112,13 +1111,13 @@ stretchRight
     -webkit-transform: scaleX(0.98);
   }
   80% {
-    -webkit-transform: scaleX(1.01);
+    -webkit-transform: scaleX(1);
   }
   100% {
-    -webkit-transform: scaleX(0.98);
+    -webkit-transform: scaleX(1);
   }
   80% {
-    -webkit-transform: scaleX(1.01);
+    -webkit-transform: scaleX(1.0);
   }
   100% {
     -webkit-transform: scaleX(1);
