@@ -32,7 +32,7 @@ class CastlesController < ApplicationController
 
   # GET /castles/new
   def new
-    @castle = Castle.new
+    @user = User.find(params[:user_id])
   end
 
   # GET /castles/1/edit
@@ -42,7 +42,8 @@ class CastlesController < ApplicationController
   # POST /castles
   # POST /castles.json
   def create
-    @castle = Castle.new(castle_params)
+    @user = User.find(params[:user_id])
+    @castle = @user.castles.build(castle_params)
 
     respond_to do |format|
       if @castle.save
@@ -88,7 +89,7 @@ class CastlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def castle_params
-      params.require(:castle).permit(:name,:description,:address,:beds,:picture)
+      params.require(:castle).permit(:name,:description,:address,:beds,:picture, :user_id)
     end
 end
 

@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150617095344) do
     t.string   "address"
     t.text     "description"
     t.integer  "beds"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150617095344) do
     t.string   "phone_number"
     t.string   "gender"
     t.string   "address"
+    t.string   "twitter"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -16,25 +16,29 @@
 
 
 
-  <div class="text-center" >
-
-  <% @user.castles.each do |castle| %>
-    <div class="col-md-4" >
-      <div class="castle-box text-center">
-          <div class= "picture-frame" >
-            <%= image_tag("castle2.jpg", class: "img-responsive") %>
-            <p>22</p>
-          </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-
-<%= link_to root_path do %>
+<%= link_to new_user_castle_path(current_user.id) do %>
   <button class="btn btn-primary">Rent your castle</button>
 <% end %>
 
 
 
+</div>
+<br>
+<br>
+<br>
+
+<div class="wrapper" >
+
+  <% @user.castles.each do |castle| %>
+    <div class="text-center">
+        <%= link_to castle_path(castle) do %>
+          <div class= "picture-frame" >
+            <%= image_tag castle.picture.url(:medium) %><br>
+          </div>
+          <p>
+            <%= castle.name %>
+          </p>
+        <% end %>
+    </div>
+  <% end %>
 </div>

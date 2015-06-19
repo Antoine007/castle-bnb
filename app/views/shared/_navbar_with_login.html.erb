@@ -18,8 +18,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Messages") %>
+            <%= mail_to "King-Maker@Castle.com" do %>
+              <i class="fa fa-envelope-o"></i> <%= t(".messages", default: "Email the King-Maker") %>
             <% end %>
           </li>
           <li class="dropdown">
@@ -35,7 +35,7 @@
               </li>
               <li>
                 <%= link_to new_user_castle_path(current_user.id) do %>
-                  <i class="fa fa-home"></i>  <%= t ".profile", default: "Castle" %>
+                  <i class="fa fa-home"></i> <%= t ".castle", default: "Create a castle" %>
                 <% end %>
               </li>
               <li>
@@ -53,9 +53,6 @@
             <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
           </li>
         <% end %>
-        <li>
-          <%= link_to t(".top_call_to_action", default: "Rent your castle"), "#", class: "btn" %>
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

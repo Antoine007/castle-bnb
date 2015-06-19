@@ -55,7 +55,7 @@
    </script>
     <p></br><%= link_to 'Destroy', @castle, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
-    <%= link_to 'Back', castles_path %>
+    <%= link_to 'Back', user_path(@castle.user_id) %>
   </div>
 </div>
 
