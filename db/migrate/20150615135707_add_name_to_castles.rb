@@ -4,7 +4,7 @@ class AddNameToCastles < ActiveRecord::Migration
     add_column :castles, :address, :string
     add_column :castles, :description, :text
     add_column :castles, :beds, :int
-    add_column :castles, :user_id, :string
+    add_column :castles, :user_id, :int
     add_column :castles, :int, :string
   end
 end

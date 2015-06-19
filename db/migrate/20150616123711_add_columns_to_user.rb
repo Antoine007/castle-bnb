@@ -6,6 +6,7 @@ class AddColumnsToUser < ActiveRecord::Migration
     add_column :users, :phone_number, :string
     add_column :users, :gender, :string
     add_column :users, :address, :string
+    add_column :users, :twitter, :string
 
   end
 end
