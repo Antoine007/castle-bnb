@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 <div class= "page-title text-center"> <p></p><b>The castles near <%= params[:location].capitalize %></b></div>
 <div class="map" >
@@ -13,7 +14,7 @@
     <div class="col-md-4" >
       <div class="castle-box text-center">
           <div class= "picture-frame" >
-            <%= image_tag("castle2.jpg", class: "img-responsive") %>
+            <%= image_tag castle.picture.url, class: "img-responsive" %>
           </div>
           <p> <%= link_to castle.name, castle_path(castle) %> </p>
           <p>Distance: <%= castle.distance.round(1) %> km </p>
@@ -23,6 +24,10 @@
 </div>
 
 <script>
+  // $('.img-responsive').onload = function() {
+  //   $(this).height = $(".picture-frame").width);
+  // };
+
   $(".castle-box").click(function(){
     if($(this).parent().hasClass("col-md-4")){
       $(this).parent().removeClass( "col-md-4" ).addClass( "col-md-12" ).css( "z-index", "3" );
@@ -62,4 +67,3 @@
 
 <br>
 
-<%= link_to 'New Castle', new_castle_path %>

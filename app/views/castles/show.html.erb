@@ -5,9 +5,9 @@
   <div class="title" style="padding-top: 20px" >
     <%= image_tag @castle.picture.url(:medium) %><br>
     <h2><%= @castle.name %></h2><br>
-    <%= @castle.beds %><br>
-    <%= @castle.description %><br>
-    <%= @castle.address %><br><br>
+    Sleeps <%= @castle.beds %> Noblemen<br><br>
+    Details:<br> <%= @castle.description %><br><br>
+    Located:<br> <%= @castle.address %><br><br>
     <%= form_tag castle_path(@castle), method: :get do %>
       <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
       <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
