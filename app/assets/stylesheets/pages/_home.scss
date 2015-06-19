@@ -1,10 +1,16 @@
 body {
-  background: url("castle");
+  background: #EDEFED;
   color: white;
-  background-size: cover;
-  background-repeat: no-repeat;
+
   // background-position: center center;
 }
+
+.main-page {
+  background: url("castle");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 .main-title {
   margin-top: 130px;

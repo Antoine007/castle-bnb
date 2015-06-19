@@ -3,26 +3,35 @@
   <h2>Create a new castle</h2>
    <%= simple_form_for [ @user, Castle.new ] do |f| %>
    <div class="text-field">
-    <%= f.input :name, required: true %>
+    <%= f.input :name, required: true, :placeholder  => "Chateau de Versailles" %>
     <br>
     <%= f.label :address %>
     <br>
     <%= f.text_field :address, id:'user_input_autocomplete_address', required: true %>
     <br>
     <br>
-    <%= f.input :description %>
+    <%= f.input :description, :placeholder  => "Nice courtyard - Touristy area" %>
     <br>
     <%= f.label :picture %>
     <br>
     <%= f.file_field :picture %>
     <br>
-     <%= f.input :beds, collection: 1..200, required: true %>
+     <%= f.input :beds, collection: 1..200, required: true%>
+    <br>
+     <%= f.input :price, required: true, :label => "Price per Night", :placeholder  => "10.000$" %>
     <br>
     <br>
     <%= f.submit class:"btn btn-primary" %>
   </div>
   <% end %>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $('body').addClass('add-bg');
+  })
+</script>
+
 
 
 

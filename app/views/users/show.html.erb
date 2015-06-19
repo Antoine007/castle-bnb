@@ -31,10 +31,11 @@
 
   <% @user.castles.each do |castle| %>
     <div class="text-center">
-        <%= link_to castle_path(castle) do %>
+
           <div class= "picture-frame" >
             <%= image_tag castle.picture.url(:medium) %><br>
           </div>
+        <%= link_to edit_castle_path(castle) do %>
           <p>
             <%= castle.name %>
           </p>
@@ -42,3 +43,4 @@
     </div>
   <% end %>
 </div>
+

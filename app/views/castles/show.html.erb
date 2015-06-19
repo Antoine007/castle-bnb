@@ -5,20 +5,32 @@
   <div class="title" style="padding-top: 20px" >
     <%= image_tag @castle.picture.url(:medium) %><br>
     <h2><%= @castle.name %></h2><br>
-    Sleeps <%= @castle.beds %> Noblemen<br><br>
+    Sleeps <b><%= @castle.beds %></b> Noblemen<br><br>
     Details:<br> <%= @castle.description %><br><br>
+    Golden dragons per night:<br> <%= @castle.price %> $GD<br><br>
     Located:<br> <%= @castle.address %><br><br>
     <%= form_tag castle_path(@castle), method: :get do %>
       <%= text_field_tag :start_date, params[:start_date], class:'calendar', placeholder: 'from (date)' %>
       <%= text_field_tag :end_date, params[:end_date], class:'calendar', placeholder: 'from (date)' %>
-      <%= submit_tag "Book these dates!", :class => 'btn btn-primary' %>
+      <%#= submit_tag "Book these dates!", :class => 'btn btn-primary' %>
     <% end %>
+    <div class="btn btn-primary">Book these dates!</div>
+    <div id="animated"></div>
 
 
   <!-- Date Picker -->
      <script type="text/javascript">
-     $(window).load(function()
-     {
+     $('body').addClass('show-bg');
+
+     $(window).load(function(){
+
+        $('.btn').click(function(){
+          $('#animated').addClass('stretchRight');
+          setTimeout(function() {$('#animated').html('<p>Reservation awaiting Lord approval</p>')}, 3000);
+        })
+
+
+
        // var myDate = new Date();
        // var prettyDate =(myDate.getMonth()+1) + '/' + myDate.getDate() + '/' +myDate.getFullYear();
        $('.calendar' ).glDatePicker(
