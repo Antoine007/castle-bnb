@@ -40,6 +40,8 @@ gem 'paperclip'
 
 gem 'devise'
 
+gem 'figaro'
+
 gem 'rails_12factor', group: :production
 
 
