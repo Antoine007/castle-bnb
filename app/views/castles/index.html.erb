@@ -10,10 +10,11 @@
     <div class="col-md-12 top-of-page">
     </div>
   </div>
+  <div class="row">
   <% @castles.each do |castle| %>
     <div class="col-md-4" >
       <div class="castle-box text-center">
-          <div class= "picture-frame" >
+          <div class= "picture-frame" style="height:200px">
             <%= image_tag castle.picture.url(:medium), class: "img-responsive" %>
           </div>
           <p> <%= link_to castle.name, castle_path(castle) %> </p>
@@ -21,6 +22,7 @@
       </div>
     </div>
   <% end %>
+  </div>
 </div>
 
 <script>
